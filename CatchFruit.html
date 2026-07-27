@@ -46,6 +46,7 @@
             function Catch(){
                 if(ApplePos===BasketPos){
                     alert('接住了！ / You caught it!');
+                    ApplePos=Math.floor(Math.random()*5)+1;
                 }else{
                     alert("没接住！ / You didn't catch it!");
                 }

@@ -1,0 +1,26 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input id="ipt" type="text" placeholder="输入100以内的数字 / Input a number that is less than 100"></input>
+        <script>var a=Math.floor(Math.random()*100)+1</script>
+        <script>
+            function Func(){
+                var num=document.getElementById("ipt").value;
+                if(num<1 || num>100 || isNaN(num)){
+                    alert("输入无效，请重新输入 / The input was invalid,please input again");
+                }
+                if(num>a){
+                    alert('大了 / Too big!');
+                }else if(num<a){
+                    alert('小了 / Too small!');
+                }else{
+                    alert("对了！/ It's right!");
+                    a=Math.floor(Math.random()*100)+1
+                }
+            }
+        </script>
+        <button onclick="Func()">猜 / Guess</button>
+   </body>
+</html>

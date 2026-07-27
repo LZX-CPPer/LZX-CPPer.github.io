@@ -10,6 +10,7 @@
                 var num=document.getElementById("ipt").value;
                 if(num<1 || num>100 || isNaN(num)){
                     alert("输入无效，请重新输入 / The input was invalid,please input again");
+                    return;
                 }
                 if(num>a){
                     alert('大了 / Too big!');

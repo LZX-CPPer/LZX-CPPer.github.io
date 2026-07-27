@@ -7,6 +7,7 @@
         <p id="basket">⬜⬜🧺⬜⬜</p>
         <button onclick="Left()">向左 / Left</button>
         <button onclick="Right()">向右 / Right</button>
+        <button onclick="Catch()">接 / Catch</button>
         <script>
             var ApplePos=4,BasketPos=3;
             function Left(){
@@ -41,6 +42,13 @@
                 
                 current=BasketLine;
                 document.getElementById('basket').textContent=current;
+            }
+            function Catch(){
+                if(ApplePos===BasketPos){
+                    alert('接住了！ / You caught it!');
+                }else{
+                    alert("没接住！ / You didn't catch it!");
+                }
             }
         </script>
         <br>

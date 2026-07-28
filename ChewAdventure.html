@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>嚼嚼大冒险</title>
+        <style>body{background-color:aliceblue;}</style>
+    </head>
+    <body>
+        <button onclick="Chew()">嚼 / Chew</button>
+        <button onclick="Skip()">跳过 / Skip</button>
+        <p id="chewdis">还要嚼3次 / 3 times left</p>
+        <script>
+            var sco=0;
+            var foods=['🍭','🍬','🍫','🧃','💰','🪳'];
+            var scr=[4,3,8,2,10,-5];
+            var chw=[3,2,10,4,1,1];
+            var cur=foods[Math.floor(Math.random()*6)];
+            var left=3;
+            var r=Math.floor(Math.random()*6)
+            function Dis(){
+                document.getElementById('fooddis').textContent='当前食物 / Current food :'+cur;
+            }
+            Dis();
+        </script>
+        <p id="scodis">积分 / Score : 0</p>
+        
+        <p id="fooddis">当前食物 / Current food :🍭 </p>
+        <script>
+            function Chew(){
+                left--;
+                var s=document.getElementById('chewdis').textContent;
+                document.getElementById('chewdis').textContent=
+                '还要嚼'+left+'次'+' / '+left+'times left';
+                if(left===0){
+                    r=Math.floor(Math.random()*6);
+                    left=chw[r];
+                    document.getElementById('scodis').textContent='积分 / Score : '+(sco+scr[r]);
+                    Dis();
+                }
+            }
+            function Skip(){
+                r=Math.floor(Math.random() * 6);
+                left=chw[r];
+                cur=foods[r];  
+                Dis();
+            }
+        </script>
+        <br>
+        <a href="index.html">👈 回到首页 / Back to Home</a>
+    </body>
+</html>

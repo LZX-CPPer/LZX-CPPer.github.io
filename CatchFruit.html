@@ -1,9 +1,7 @@
 <html>
     <head>
         <title>接水果游戏</title>
-        <style>
-            body{background-color:aliceblue;}
-        </style>
+        <style>body{background-color:aliceblue;}</style>
     </head>
     <body>
         <p id="apple">⬜⬜⬜🍎⬜</p>
@@ -11,23 +9,15 @@
         <button onclick="Left()">向左 / Left</button>
         <button onclick="Right()">向右 / Right</button>
         <button onclick="Catch()">接 / Catch</button>
-        <script>
+        <script>  
+            var fruit=['🍎', '🍊', '🍇', '🍉', '🍓'];
+            var cur=fruit[Math.floor(Math.random()*5)];
             var ApplePos=4,BasketPos=3;
-            function Left(){
-                BasketPos--;
-                if(BasketPos<=0)BasketPos++;
-                Show();
-            }
-            function Right(){
-                BasketPos++;
-                if(BasketPos>=6)BasketPos--;
-                Show();
-            }
             function Show(){
                 var BasketLine='',AppleLine='';
                 for(var i=1;i<=5;i++){
                     if(i===ApplePos){
-                        AppleLine+='🍎';
+                        AppleLine+=cur;
                     }else{
                         AppleLine+='⬜';
                     }
@@ -46,14 +36,26 @@
                 current=BasketLine;
                 document.getElementById('basket').textContent=current;
             }
+            Show();
+            function Left(){
+                BasketPos--;
+                if(BasketPos<=0)BasketPos++;
+                Show();
+            }
+            function Right(){
+                BasketPos++;
+                if(BasketPos>=6)BasketPos--;
+                Show();
+            }
             function Catch(){
                 if(ApplePos===BasketPos){
                     alert('接住了！ / You caught it!');
                     ApplePos=Math.floor(Math.random()*5)+1;
-                    Show();
+                    cur=fruit[Math.floor(Math.random()*5)];
                 }else{
                     alert("没接住！ / You didn't catch it!");
                 }
+                Show();
             }
         </script>
         <br>

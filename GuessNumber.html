@@ -1,9 +1,7 @@
 <html>
     <head>
         <title>猜数字游戏</title>
-        <style>
-            body{background-color:aliceblue;}
-        </style>
+        <style>body{background-color:aliceblue;}</style>
     </head>
     <body>
         <input id="ipt" type="text" placeholder="输入100以内的数字 / Input a number that is less than 100"></input>
@@ -24,8 +22,14 @@
                     a=Math.floor(Math.random()*100)+1
                 }
             }
+            function Answer(){
+                document.getElementById('message').textContent='答案是：'+a+' / The answer is: '+a;
+            }
         </script>
         <button onclick="Func()">猜 / Guess</button>
+        <button onclick="Answer()">显示答案 / Get the answer.</button>
+        <br>
+        <p id="message"></p>
         <br>
         <a href="index.html">👈 回到首页 / Back to Home</a>
    </body>

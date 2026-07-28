@@ -9,12 +9,12 @@
         <p id="chewdis">还要嚼3次 / 3 times left</p>
         <script>
             var sco=0;
-            var foods=['🍭','🍬','🍫','🧃','💰','🪳'];
-            var scr=[4,3,8,2,10,-5];
-            var chw=[3,2,10,4,1,1];
-            var cur=foods[Math.floor(Math.random()*6)];
+            var foods=['🍭','🍬','🍫','🧃','💰','🪳','🐛'];
+            var scr=[4,3,8,2,10,-5,-7];
+            var chw=[3,2,10,4,1,1,1];
+            var cur=foods[Math.floor(Math.random()*7)];
             var left=3;
-            var r=Math.floor(Math.random()*6)
+            var r=Math.floor(Math.random()*7);
             function Dis(){
                 document.getElementById('fooddis').textContent='当前食物 / Current food :'+cur;
             }
@@ -29,16 +29,17 @@
                 var s=document.getElementById('chewdis').textContent;
                 document.getElementById('chewdis').textContent=
                 '还要嚼'+left+'次'+' / '+left+'times left';
-                if(left===0){
-                    r=Math.floor(Math.random()*6);
-                    left=chw[r];
+                if(left<=0){
                     document.getElementById('scodis').textContent='积分 / Score : '+(sco+scr[r]);
+                    sco+=scr[r];
+                    r=Math.floor(Math.random()*7);
+                    left=chw[r];
+                    cur=foods[r];
                     Dis();
                 }
-                cur=foods[r];
             }
             function Skip(){
-                r=Math.floor(Math.random() * 6);
+                r=Math.floor(Math.random()*7);
                 left=chw[r];
                 cur=foods[r];  
                 Dis();

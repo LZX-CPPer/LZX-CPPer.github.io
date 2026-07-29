@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>猜词大师</title>
+        <style>body{background-color:aliceblue;}</style>
+    </head>
+    <body>
+        <input id="guess" placeholder="猜词 / Input the word"></input>
+        <button onclick="Guess()">猜 / Guess</button>
+        <script>
+            var words=[
+                // A
+                "APPLE", "ABOUT", "ABOVE", "ACTOR",
+                // B
+                "BLACK", "BREAD", "BRAIN", "BROWN",
+                // C
+                "CHECK", "CHEST", "CHILD", "CLEAN",
+                // D
+                "DANCE", "DEATH", "DREAM", "DRINK",
+                // E
+                "EAGER", "EAGLE", "EARLY", "EARTH",
+                // F
+                "FAITH", "FANCY", "FAULT", "FIELD",
+                // G
+                "GHOST", "GIANT", "GLASS", "GRAND",
+                // H
+                "HAPPY", "HEART", "HELLO", "HORSE",
+                // I
+                "IMAGE", "INPUT", "IRONY", "ISSUE",
+                // J
+                "JELLY", "JOINT", "JUDGE", "JUICE",
+                // K
+                "KNIFE", "KOALA", "KNOCK", "KNELT",
+                // L
+                "LEMON", "LIGHT", "LIMIT", "LUNCH",
+                // M
+                "MAGIC", "MAJOR", "MONEY", "MOUTH",
+                // N
+                "NURSE", "NIGHT", "NORTH", "NOVEL",
+                // O
+                "OCEAN", "OFFER", "ORDER", "OTHER",
+                // P
+                "PAINT", "PEACE", "PLANT", "PRINT",
+                // Q
+                "QUEEN", "QUICK", "QUIET", "QUOTE",
+                // R
+                "RADIO", "RIVER", "ROUND", "ROYAL",
+                // S
+                "SWEET", "SWIFT", "SNAKE", "STONE",
+                // T
+                "TABLE", "THINK", "THIRD", "TOTAL",
+                // U
+                "UNCLE", "UNDER", "UNITY", "USUAL",
+                // V
+                "VALUE", "VIDEO", "VOICE", "VITAL",
+                // W
+                "WASTE", "WATER", "WHITE", "WORLD",
+                // Y
+                "YOUNG", "YOUTH", "YELLOW", "YARD",
+                // Z
+                "ZEBRA", "ZESTY", "ZIGZAG", "ZIPPY"
+            ];
+            var goal=words[Math.floor(Math.random()*25)];
+        </script>
+        <br>
+        <p id="cur">当前 / Current: ⬛⬛⬛⬛⬛</p>
+        <script>
+            function Guess(){
+                var s=document.getElementById('guess').value;
+                var a='';
+                for(var i=0;i<5;i++){
+                    if(s[i]===goal[i]){
+                        a+='🟩';
+                    }else{
+                        a+='⬛';
+                    }
+                }
+                document.getElementById('cur').textContent="当前 / Current: "+a;
+                if(a==='🟩🟩🟩🟩🟩'){
+                    alert('你赢了 / You won!');
+                }
+            }
+        </script>
+        <p style="font-size:16px;color:#888;">💡 提示：最常见的字母是 E, A, R, I, O, T</p>
+        <p style="font-size:16px;color:#888;">💡 Tips：The most common letters are E, A, R, I, O, T</p>
+        <p>用大写字母 / Use capital letters</p>
+        <br>
+        <a href="index.html">👈 回到首页 / Back to Home</a>
+    </body>
+</html>

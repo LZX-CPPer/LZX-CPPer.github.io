@@ -6,8 +6,6 @@
     <body>
         <input id="guess" placeholder="猜词 / Input the word"></input>
         <button onclick="Guess()">猜 / Guess</button>
-        <br>
-        <p id="cur">当前 / Current: ⬛⬛⬛⬛⬛</p>
         <script>
             var words=[
                 // A
@@ -57,11 +55,15 @@
                 // W
                 "WASTE", "WATER", "WHITE", "WORLD",
                 // Y
-                "YOUNG", "YOUTH", "YUMMY", "YARD",
+                "YOUNG", "YOUTH", "YELLOW", "YARD",
                 // Z
-                "ZEBRA", "ZESTY", "ZONAL", "ZIPPY"
+                "ZEBRA", "ZESTY", "ZIGZAG", "ZIPPY"
             ];
-            var goal=words[Math.floor(Math.random()*words.length)];
+            var goal=words[Math.floor(Math.random()*25)];
+        </script>
+        <br>
+        <p id="cur">当前 / Current: ⬛⬛⬛⬛⬛</p>
+        <script>
             function Guess(){
                 var s=document.getElementById('guess').value;
                 var a='';
@@ -72,21 +74,7 @@
                         a+='⬛';
                     }
                 }
-                var used=[0,0,0,0,0];
-                var cloned_a=a.split('');
-                for(var i=0;i<5;i++){
-                    for(var j=0;j<5;j++){
-                        if(cloned_a[i]=='🟩'){
-                            continue;
-                        }
-                        if(s[i]==goal[j] && !used[j]){
-                            cloned_a[i]='🟨';
-                            used[j]=1;
-                            break;
-                        }
-                    }
-                }
-                document.getElementById('cur').textContent="当前 / Current: "+cloned_a.join('');
+                document.getElementById('cur').textContent="当前 / Current: "+a;
                 if(a==='🟩🟩🟩🟩🟩'){
                     alert('你赢了 / You won!');
                 }

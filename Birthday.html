@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>生日庆祝!!!!!</title>
+        <style>
+            .tit{
+                color: aquamarine;
+                font-size: 56px;
+            }
+            body{
+                background-color: chocolate;
+            }
+        </style>
+    </head>
+    <body>
+        <tit>我的生日到了！！！</tit>
+        <tit>IT'S MY BIRTHDAY!!!</tit>
+        <p>这个网站将于10.5下线！！！</p>
+        <p>This website will disappear on October 5th!</p>
+        <p id="cele"></p>
+        <button onclick="cl()">点我！ / Click me!</button>
+        <script>
+            function cl(){
+                var s=document.getElementById('cele').textContent;
+                document.getElementById('cele').textContent=s+'🎁';
+            }
+        </script>
+    </body>
+</html>
